@@ -17,15 +17,15 @@ export function HeroSection() {
       <div className="relative z-30 text-center max-w-6xl mx-auto px-4 sm:px-6 pointer-events-none pt-16 sm:pt-4">
         <div className="animate-fade-in">
           <h1 className={cn("text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6")}>
-            European Nutrition
+            Join America's Premier
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-              Specialists
+              Distributor Network
             </span>
           </h1>
           
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-2">
-            America's specialist distributor for premium European nutrition brands. 
-            Your expert gateway to PWD Nutrition, Protella & ElevenFit success in the US market.
+            We handle the European complexity - you focus on US sales success. 
+            Your proven pathway to PWD Nutrition, Protella & ElevenFit partnerships.
           </p>
           
           <div className="flex flex-col gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12 pointer-events-auto w-full max-w-md sm:max-w-none mx-auto">
@@ -33,7 +33,7 @@ export function HeroSection() {
               size="lg" 
               className="bg-white text-primary hover:bg-gray-100 font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg shadow-glow transition-all duration-300 hover:scale-105 w-full sm:w-auto"
             >
-              Explore Premium Products
+              Join Authorized Network
               <ArrowRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5" />
             </Button>
             <Button 
@@ -41,7 +41,7 @@ export function HeroSection() {
               size="lg"
               className="border-white bg-white/10 text-white hover:bg-white hover:text-primary font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg transition-all duration-300 w-full sm:w-auto"
             >
-              Partner With Us
+              View Network Benefits
             </Button>
           </div>
           
@@ -50,24 +50,24 @@ export function HeroSection() {
               <div className="bg-white/10 rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-3 sm:mb-4">
                 <Package className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">Premium European Products</h3>
-              <p className="text-sm sm:text-base text-gray-300">Trusted gateway to Europe's breakthrough nutrition innovations</p>
+              <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">Proven European Partnerships</h3>
+              <p className="text-sm sm:text-base text-gray-300">Established relationships with breakthrough nutrition innovators</p>
             </div>
             
             <div className="text-center animate-slide-up [animation-delay:200ms]">
               <div className="bg-white/10 rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-3 sm:mb-4">
                 <Globe className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">US Compliance</h3>
-              <p className="text-sm sm:text-base text-gray-300">FDA compliant operations with guaranteed US regulatory compliance</p>
+              <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">US Market Expertise</h3>
+              <p className="text-sm sm:text-base text-gray-300">FDA compliance, import regulations, and market intelligence handled</p>
             </div>
             
             <div className="text-center animate-slide-up [animation-delay:400ms]">
               <div className="bg-white/10 rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mx-auto mb-3 sm:mb-4">
                 <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">Specialist Network</h3>
-              <p className="text-sm sm:text-base text-gray-300">Expert guidance through US market entry and distribution</p>
+              <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">Authorized Network Benefits</h3>
+              <p className="text-sm sm:text-base text-gray-300">Training, support, and territorial development you can't get elsewhere</p>
             </div>
           </div>
         </div>

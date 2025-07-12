@@ -7,47 +7,47 @@ import { MapPin, Shield, TrendingUp, BookOpen, DollarSign, FileText, Clock, Star
 const dealerBenefits = [
   {
     icon: MapPin,
-    title: "Market Support",
-    description: "Geographic focus areas help you build strong regional presence with European brands.",
-    highlight: "Market Focus"
+    title: "Qualification Process",
+    description: "Selective vetting ensures you're partnering with serious, committed distributors only.",
+    highlight: "Quality Partners"
   },
   {
     icon: Shield,
-    title: "Premium Product Access",
-    description: "Priority access to new products and featured items from our European manufacturing partners.",
-    highlight: "Priority Access"
+    title: "Network Priority Access",
+    description: "First access to new products, launches, and exclusive opportunities within our network.",
+    highlight: "Member Benefits"
   },
   {
     icon: TrendingUp,
-    title: "Marketing Support Programs",
-    description: "Comprehensive marketing materials, co-op advertising funds, and promotional support.",
-    highlight: "Marketing Funds"
+    title: "Marketing Development Funds",
+    description: "Co-op advertising, promotional materials, and marketing support exclusive to authorized partners.",
+    highlight: "Marketing Support"
   },
   {
     icon: BookOpen,
-    title: "Technical Training Included",
-    description: "Product knowledge certification and ongoing education from European manufacturers.",
-    highlight: "Free Training"
+    title: "Certification & Training",
+    description: "Ongoing education, product certification, and European manufacturer knowledge sharing.",
+    highlight: "Expert Training"
   },
   {
     icon: DollarSign,
-    title: "Volume Incentive Programs",
-    description: "Tiered pricing structure with better margins for higher volume commitments.",
-    highlight: "Better Margins"
+    title: "Territory Development",
+    description: "Strategic market development support and business growth planning assistance.",
+    highlight: "Growth Support"
   },
   {
     icon: FileText,
-    title: "Compliance Documentation",
-    description: "Complete FDA compliance support with all necessary regulatory documentation.",
-    highlight: "FDA Support"
+    title: "Network Events & Knowledge",
+    description: "Exclusive distributor events, market intelligence sharing, and peer networking opportunities.",
+    highlight: "Community Benefits"
   }
 ];
 
 const urgencyItems = [
-  "Growing partnership opportunities",
-  "European brand expansion support", 
-  "Market development assistance available",
-  "Specialist training programs included"
+  "Limited network positions available",
+  "Qualification process ensures selectivity", 
+  "Territory development support included",
+  "Exclusive training and certification programs"
 ];
 
 export function AuthorizedDealerBenefits() {
@@ -59,11 +59,11 @@ export function AuthorizedDealerBenefits() {
             Partnership Program
           </Badge>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
-            Partner Benefits
+            Authorized Distributor Network
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Join America's premier European nutrition distribution network. 
-            Partner with trusted European brands for US market success.
+            Join our qualified network of authorized distributors. Selective partnership means 
+            better support, training, and territorial development for serious partners only.
           </p>
           
           {/* Urgency Section */}
@@ -112,21 +112,21 @@ export function AuthorizedDealerBenefits() {
         <div className="mt-12 sm:mt-16 text-center">
           <div className="bg-background/80 backdrop-blur-sm rounded-lg p-6 sm:p-8 max-w-4xl mx-auto border">
             <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
-              Competitive Positioning Advantages
+              Why Our Authorized Network Works
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <div className="text-left">
-                <h4 className="font-semibold text-primary mb-2">Trusted American gateway</h4>
-                <p className="text-sm text-muted-foreground">Deep relationships with European manufacturers</p>
+                <h4 className="font-semibold text-primary mb-2">Quality Over Quantity</h4>
+                <p className="text-sm text-muted-foreground">Selective qualification means better support for committed partners</p>
               </div>
               <div className="text-left">
-                <h4 className="font-semibold text-primary mb-2">Proven pathway to European brands</h4>
-                <p className="text-sm text-muted-foreground">Expert guidance through market entry</p>
+                <h4 className="font-semibold text-primary mb-2">Mutual Investment</h4>
+                <p className="text-sm text-muted-foreground">We invest in your success with ongoing training and development</p>
               </div>
             </div>
             
             <Button size="lg" className="bg-primary text-white hover:bg-primary/90">
-              Apply for Partnership Status
+              Apply for Authorized Status
             </Button>
           </div>
         </div>

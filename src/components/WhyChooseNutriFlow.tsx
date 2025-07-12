@@ -1,38 +1,38 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Shield, CheckCircle, Globe, Package, Users, Award } from "lucide-react";
+import { Shield, Globe, TrendingUp, Package, Users, Zap } from "lucide-react";
 
 const benefits = [
   {
     icon: Shield,
-    title: "European Brand Expertise",
-    description: "Deep relationships with European manufacturers ensure authentic products and reliable supply."
-  },
-  {
-    icon: CheckCircle,
-    title: "FDA Compliance Guaranteed",
-    description: "All products meet US regulatory requirements with complete documentation and support."
+    title: "Risk Reduction",
+    description: "We handle regulatory complexity, cultural barriers, and import risks so you don't have to."
   },
   {
     icon: Globe,
-    title: "Direct Manufacturer Partnerships",
-    description: "Trusted relationships with Europe's leading nutrition brands ensure seamless cooperation."
+    title: "Simplified Operations",
+    description: "One US partner vs managing multiple European relationships, languages, and time zones."
+  },
+  {
+    icon: TrendingUp,
+    title: "Established Relationships",
+    description: "Years of trust-building with European manufacturers - relationships you can't replicate quickly."
   },
   {
     icon: Package,
-    title: "US Inventory & Fulfillment",
-    description: "Strategic inventory positioning for fast delivery and reliable supply chain management."
+    title: "Market Intelligence",
+    description: "Deep understanding of US market demands, pricing strategies, and competitive positioning."
   },
   {
     icon: Users,
-    title: "Marketing Development Funds",
-    description: "Co-op advertising support and marketing materials to grow your business."
+    title: "Ongoing Support",
+    description: "Continuous training, marketing support, and business development you won't get going direct."
   },
   {
-    icon: Award,
-    title: "Regulatory Support Included",
-    description: "Complete compliance assistance and regulatory guidance for seamless operations."
+    icon: Zap,
+    title: "Speed to Market",
+    description: "Skip months of relationship building, compliance research, and trial-and-error learning."
   }
 ];
 
@@ -42,14 +42,14 @@ export function WhyChooseNutriFlow() {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16">
           <Badge className="mb-4 bg-primary text-white">
-            European Brand Specialist
+            Smart Partnership Choice
           </Badge>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
-            Why Choose NutriFlow
+            Why Join Our Network?
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Trusted American gateway to Europe's breakthrough nutrition innovations. 
-            Deep relationships with European manufacturers you can trust.
+            Going direct to European manufacturers is complex, risky, and time-consuming. 
+            We've already solved these challenges - you get the benefits without the headaches.
           </p>
         </div>
         
@@ -76,13 +76,13 @@ export function WhyChooseNutriFlow() {
         <div className="mt-12 sm:mt-16 text-center">
           <div className="bg-primary/5 rounded-lg p-6 sm:p-8 max-w-4xl mx-auto">
             <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
-              European Market Expertise Guarantee
+              The Smart Choice vs Going Direct
             </h3>
             <div className="space-y-3 text-sm sm:text-base text-muted-foreground">
-              <p>• NutriFlow specializes in bringing European nutrition brands to US markets</p>
-              <p>• Deep relationships with PWD Nutrition, Protella, and ElevenFit manufacturers</p>
-              <p>• Expert guidance through US regulatory requirements and market entry</p>
-              <p>• Proven track record in European-to-US nutrition product distribution</p>
+              <p>• Skip months of relationship building and trust development with European manufacturers</p>
+              <p>• Avoid regulatory compliance mistakes that could cost thousands in delays or rejections</p>
+              <p>• Access proven market intelligence and competitive positioning strategies</p>
+              <p>• Get ongoing support and training instead of figuring it out alone</p>
             </div>
           </div>
         </div>
