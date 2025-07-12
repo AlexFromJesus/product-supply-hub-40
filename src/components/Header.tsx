@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -43,24 +44,36 @@ export const Header = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="start" className="w-48">
                   <DropdownMenuItem asChild>
-                    <Link to="/manufacturers" className="w-full">
+                    <button 
+                      onClick={() => scrollToSection('brands')}
+                      className="w-full text-left"
+                    >
                       Our Partner Brands
-                    </Link>
+                    </button>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link to="/manufacturers/pwd-nutrition" className="w-full">
+                    <button 
+                      onClick={() => scrollToSection('pwd-nutrition')}
+                      className="w-full text-left"
+                    >
                       PWD Nutrition
-                    </Link>
+                    </button>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link to="/manufacturers/protella" className="w-full">
+                    <button 
+                      onClick={() => scrollToSection('protella')}
+                      className="w-full text-left"
+                    >
                       Protella
-                    </Link>
+                    </button>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link to="/manufacturers/elevenfit" className="w-full">
+                    <button 
+                      onClick={() => scrollToSection('elevenfit')}
+                      className="w-full text-left"
+                    >
                       ElevenFit
-                    </Link>
+                    </button>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -91,34 +104,30 @@ export const Header = () => {
           {isMenuOpen && (
             <div className="md:hidden py-4 border-t border-white/10 animate-fade-in">
               <nav className="flex flex-col space-y-3 px-2">
-                <Link 
-                  to="/manufacturers"
-                  onClick={closeMenu}
+                <button 
+                  onClick={() => scrollToSection('brands')}
                   className="text-sm text-white/90 hover:text-white transition-colors duration-200 text-left"
                 >
                   Our Partner Brands
-                </Link>
-                <Link 
-                  to="/manufacturers/pwd-nutrition"
-                  onClick={closeMenu}
+                </button>
+                <button 
+                  onClick={() => scrollToSection('pwd-nutrition')}
                   className="text-sm text-white/90 hover:text-white transition-colors duration-200 text-left pl-4"
                 >
                   PWD Nutrition
-                </Link>
-                <Link 
-                  to="/manufacturers/protella"
-                  onClick={closeMenu}
+                </button>
+                <button 
+                  onClick={() => scrollToSection('protella')}
                   className="text-sm text-white/90 hover:text-white transition-colors duration-200 text-left pl-4"
                 >
                   Protella
-                </Link>
-                <Link 
-                  to="/manufacturers/elevenfit"
-                  onClick={closeMenu}
+                </button>
+                <button 
+                  onClick={() => scrollToSection('elevenfit')}
                   className="text-sm text-white/90 hover:text-white transition-colors duration-200 text-left pl-4"
                 >
                   ElevenFit
-                </Link>
+                </button>
                 <button
                   onClick={() => scrollToSection('dealer-benefits')}
                   className="text-sm text-white/90 hover:text-white transition-colors duration-200 text-left"
