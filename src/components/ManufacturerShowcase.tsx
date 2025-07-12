@@ -1,7 +1,8 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { MapPin, Shield, Star } from "lucide-react";
 import protellaImage from "/lovable-uploads/3e471310-2c1b-4607-9f54-f251614841b8.png";
 import pwdImage from "/lovable-uploads/a3fa7e2c-f897-4f11-b53d-6155e3de4cdb.png";
 import elevenfitImage from "@/assets/elevenfit-hero.jpg";
@@ -10,29 +11,32 @@ const manufacturers = [
   {
     name: "PWD Nutrition", 
     country: "Spain",
-    website: "pwdnutrition.com",
-    description: "15 years of expertise in dietetics, nutrition and food supplements. Trusted by pharmacies and health centers across Europe for pharmaceutical-grade products.",
+    title: "Official US Partner - PWD Nutrition",
+    description: "15 years of expertise in dietetics, nutrition and food supplements. Exclusive US distribution rights. All PWD products available only through our authorized dealer network.",
     specialties: ["Protein Cookies", "Protein Cake", "Pharmaceutical Grade"],
     image: pwdImage,
-    highlightProducts: ["34% Protein Cookies (4 flavors)", "Protein Cake (20% protein)", "Protein Bun (20% protein)"]
+    highlightProducts: ["34% Protein Cookies (4 flavors)", "Protein Cake (20% protein)", "Protein Bun (20% protein)"],
+    exclusiveText: "Exclusive US distribution rights guaranteed"
   },
   {
     name: "Protella",
     country: "Spain",
-    website: "protella.com",
-    description: "Premium protein products made in Spain with Creapure®, Sucramix®, DigeZyme®, and Peptan® certifications. No added sugars, high protein, no palm oil.",
+    title: "Official US Partner - Protella",
+    description: "Premium protein products made in Spain with Creapure®, Sucramix®, DigeZyme®, and Peptan® certifications. Exclusive US distribution agreement. Official American source for all Protella innovations.",
     specialties: ["Whey Protein Products", "Premium Protein Creams", "Creatine Supplements"],
     image: protellaImage,
-    highlightProducts: ["Whey Protein American Cookie", "Protein Chocolate Creams", "Creatina Creapure® Doughnut"]
+    highlightProducts: ["Whey Protein American Cookie", "Protein Chocolate Creams", "Creatina Creapure® Doughnut"],
+    exclusiveText: "Exclusive US distribution agreement active"
   },
   {
     name: "ElevenFit",
     country: "Spain", 
-    website: "elevenfit.es",
-    description: "Revolutionary sugar-free nutrition with 50 instant drink flavors. Zero sugar, zero calories, maximum flavor - perfect for modern health-conscious consumers.",
+    title: "Official US Partner - ElevenFit",
+    description: "Revolutionary sugar-free nutrition with 50 instant drink flavors. Exclusive US territory rights. Only authorized source for ElevenFit's 50-flavor collection in America.",
     specialties: ["50 Flavor Collection", "Sugar-Free Products", "Instant Mixes"],
     image: elevenfitImage,
-    highlightProducts: ["50 Flavor Instant Drinks", "Zero-Calorie Syrups", "Individual Flavor Collections"]
+    highlightProducts: ["50 Flavor Instant Drinks", "Zero-Calorie Syrups", "Individual Flavor Collections"],
+    exclusiveText: "Exclusive US territory rights secured"
   }
 ];
 
@@ -42,11 +46,11 @@ export function ManufacturerShowcase() {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 px-2">
-            Our Premium Partners
+            Our Exclusive Brands
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
-            We work exclusively with Europe's leading nutrition manufacturers, 
-            bringing their innovative products to the US market.
+            Official US distributor for Europe's breakthrough nutrition brands. 
+            Exclusive American access available only through our authorized dealer network.
           </p>
           
           {/* Partner Logos */}
@@ -84,18 +88,25 @@ export function ManufacturerShowcase() {
                   alt={`${manufacturer.name} products`}
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
-                <div className="absolute top-4 left-4">
+                <div className="absolute top-4 left-4 flex flex-col gap-2">
                   <Badge variant="secondary" className="bg-white/90 text-primary">
                     <MapPin className="w-3 h-3 mr-1" />
                     {manufacturer.country}
+                  </Badge>
+                  <Badge className="bg-primary text-white">
+                    <Shield className="w-3 h-3 mr-1" />
+                    Official US Distributor
                   </Badge>
                 </div>
               </div>
               
               <CardContent className="p-4 sm:p-6">
                 <div className="flex items-center justify-between mb-3 sm:mb-4">
-                  <h3 className="text-xl sm:text-2xl font-bold text-foreground">{manufacturer.name}</h3>
-                  <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors flex-shrink-0" />
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-foreground">{manufacturer.name}</h3>
+                    <p className="text-sm text-primary font-medium">{manufacturer.title}</p>
+                  </div>
+                  <Star className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
                 </div>
                 
                 <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4 leading-relaxed">
@@ -113,7 +124,7 @@ export function ManufacturerShowcase() {
                   </div>
                 </div>
                 
-                <div>
+                <div className="mb-4">
                   <h4 className="font-semibold text-foreground mb-2 text-sm sm:text-base">Featured Products:</h4>
                   <ul className="text-xs sm:text-sm text-muted-foreground space-y-1">
                     {manufacturer.highlightProducts.map((product) => (
@@ -124,6 +135,19 @@ export function ManufacturerShowcase() {
                     ))}
                   </ul>
                 </div>
+                
+                <div className="mb-4">
+                  <Badge variant="outline" className="text-xs text-primary border-primary mb-2">
+                    {manufacturer.exclusiveText}
+                  </Badge>
+                  <p className="text-xs text-muted-foreground">
+                    Available only through our authorized dealer network
+                  </p>
+                </div>
+                
+                <Button className="w-full" variant="outline">
+                  Request Product Information
+                </Button>
               </CardContent>
             </Card>
           ))}

@@ -37,14 +37,14 @@ export const Header = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="text-white/90 hover:text-white hover:bg-white/10 text-sm px-3 py-1">
-                    Manufacturers
+                    Our Brands
                     <ChevronDown className="ml-1 h-3 w-3" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="start" className="w-48">
                   <DropdownMenuItem asChild>
                     <Link to="/manufacturers" className="w-full">
-                      All Manufacturers
+                      Our Exclusive Brands
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
@@ -65,16 +65,16 @@ export const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
               <button
-                onClick={() => scrollToSection('benefits')}
+                onClick={() => scrollToSection('dealer-benefits')}
                 className="text-sm text-white/90 hover:text-white transition-colors duration-200 hover:underline underline-offset-4"
               >
-                Distribution
+                Dealer Network
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
                 className="text-sm text-white/90 hover:text-white transition-colors duration-200 hover:underline underline-offset-4"
               >
-                Contact
+                Become Authorized
               </button>
             </nav>
 
@@ -96,7 +96,7 @@ export const Header = () => {
                   onClick={closeMenu}
                   className="text-sm text-white/90 hover:text-white transition-colors duration-200 text-left"
                 >
-                  All Manufacturers
+                  Our Exclusive Brands
                 </Link>
                 <Link 
                   to="/manufacturers/pwd-nutrition"
@@ -120,16 +120,16 @@ export const Header = () => {
                   ElevenFit
                 </Link>
                 <button
-                  onClick={() => scrollToSection('benefits')}
+                  onClick={() => scrollToSection('dealer-benefits')}
                   className="text-sm text-white/90 hover:text-white transition-colors duration-200 text-left"
                 >
-                  Distribution
+                  Dealer Network
                 </button>
                 <button
                   onClick={() => scrollToSection('contact')}
                   className="text-sm text-white/90 hover:text-white transition-colors duration-200 text-left"
                 >
-                  Contact
+                  Become Authorized
                 </button>
               </nav>
             </div>
