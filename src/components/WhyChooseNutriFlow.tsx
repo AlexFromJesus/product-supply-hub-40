@@ -6,8 +6,8 @@ import { Shield, CheckCircle, Globe, Package, Users, Award } from "lucide-react"
 const benefits = [
   {
     icon: Shield,
-    title: "Exclusive US Territory Rights",
-    description: "Protected market access with guaranteed exclusivity for our authorized dealer network."
+    title: "European Brand Expertise",
+    description: "Deep relationships with European manufacturers ensure authentic products and reliable supply."
   },
   {
     icon: CheckCircle,
@@ -16,8 +16,8 @@ const benefits = [
   },
   {
     icon: Globe,
-    title: "Direct Manufacturer Relationships",
-    description: "Official partnerships with Europe's leading nutrition brands ensure authentic products."
+    title: "Direct Manufacturer Partnerships",
+    description: "Trusted relationships with Europe's leading nutrition brands ensure seamless cooperation."
   },
   {
     icon: Package,
@@ -42,14 +42,14 @@ export function WhyChooseNutriFlow() {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16">
           <Badge className="mb-4 bg-primary text-white">
-            Official US Distributor
+            European Brand Specialist
           </Badge>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
             Why Choose NutriFlow
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            The only authorized US source for Europe's breakthrough nutrition innovations. 
-            Exclusive partnerships you can't get elsewhere.
+            Trusted American gateway to Europe's breakthrough nutrition innovations. 
+            Deep relationships with European manufacturers you can trust.
           </p>
         </div>
         
@@ -76,13 +76,13 @@ export function WhyChooseNutriFlow() {
         <div className="mt-12 sm:mt-16 text-center">
           <div className="bg-primary/5 rounded-lg p-6 sm:p-8 max-w-4xl mx-auto">
             <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
-              US Market Exclusivity Guarantee
+              European Market Expertise Guarantee
             </h3>
             <div className="space-y-3 text-sm sm:text-base text-muted-foreground">
-              <p>• NutriFlow holds exclusive US distribution rights for PWD Nutrition, Protella, and ElevenFit</p>
-              <p>• All products available only through our authorized dealer network</p>
-              <p>• Direct manufacturer purchases not available in US market</p>
-              <p>• Guaranteed authentic products with US compliance certification</p>
+              <p>• NutriFlow specializes in bringing European nutrition brands to US markets</p>
+              <p>• Deep relationships with PWD Nutrition, Protella, and ElevenFit manufacturers</p>
+              <p>• Expert guidance through US regulatory requirements and market entry</p>
+              <p>• Proven track record in European-to-US nutrition product distribution</p>
             </div>
           </div>
         </div>
