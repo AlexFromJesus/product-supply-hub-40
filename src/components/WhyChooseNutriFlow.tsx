@@ -6,33 +6,33 @@ import { Shield, Globe, TrendingUp, Package, Users, Zap } from "lucide-react";
 const benefits = [
   {
     icon: Shield,
-    title: "Risk Reduction",
-    description: "We handle regulatory complexity, cultural barriers, and import risks so you don't have to."
+    title: "Proven European Partnerships",
+    description: "Established relationships with breakthrough nutrition manufacturers delivering consistent results."
   },
   {
     icon: Globe,
-    title: "Simplified Operations",
-    description: "One US partner vs managing multiple European relationships, languages, and time zones."
+    title: "Complete US Compliance",
+    description: "All regulatory requirements, FDA documentation, and import processes handled expertly."
   },
   {
     icon: TrendingUp,
-    title: "Established Relationships",
-    description: "Years of trust-building with European manufacturers - relationships you can't replicate quickly."
-  },
-  {
-    icon: Package,
     title: "Market Intelligence",
     description: "Deep understanding of US market demands, pricing strategies, and competitive positioning."
   },
   {
+    icon: Package,
+    title: "Streamlined Operations",
+    description: "One trusted US partner managing all European relationships for simplified business operations."
+  },
+  {
     icon: Users,
-    title: "Ongoing Support",
-    description: "Continuous training, marketing support, and business development you won't get going direct."
+    title: "Comprehensive Support",
+    description: "Ongoing training, marketing materials, and business development support for your success."
   },
   {
     icon: Zap,
-    title: "Speed to Market",
-    description: "Skip months of relationship building, compliance research, and trial-and-error learning."
+    title: "Faster Market Entry",
+    description: "Immediate access to established supply chains and proven market entry strategies."
   }
 ];
 
@@ -42,14 +42,14 @@ export function WhyChooseNutriFlow() {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16">
           <Badge className="mb-4 bg-primary text-white">
-            Smart Partnership Choice
+            Authorized Distribution Network
           </Badge>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
-            Why Join Our Network?
+            Your Gateway to European Innovation
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Going direct to European manufacturers is complex, risky, and time-consuming. 
-            We've already solved these challenges - you get the benefits without the headaches.
+            Access revolutionary protein products that are transforming the European market. 
+            We make European innovation simple for American distributors.
           </p>
         </div>
         
@@ -76,13 +76,13 @@ export function WhyChooseNutriFlow() {
         <div className="mt-12 sm:mt-16 text-center">
           <div className="bg-primary/5 rounded-lg p-6 sm:p-8 max-w-4xl mx-auto">
             <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
-              The Smart Choice vs Going Direct
+              European Innovation Made Simple
             </h3>
             <div className="space-y-3 text-sm sm:text-base text-muted-foreground">
-              <p>• Skip months of relationship building and trust development with European manufacturers</p>
-              <p>• Avoid regulatory compliance mistakes that could cost thousands in delays or rejections</p>
-              <p>• Access proven market intelligence and competitive positioning strategies</p>
-              <p>• Get ongoing support and training instead of figuring it out alone</p>
+              <p>• Access to PWD Nutrition's pharmaceutical-grade protein innovations</p>
+              <p>• Protella's revolutionary protein spreads and bakery solutions</p>
+              <p>• ElevenFit's game-changing 50-flavor protein collection</p>
+              <p>• Complete regulatory compliance and market entry support included</p>
             </div>
           </div>
         </div>

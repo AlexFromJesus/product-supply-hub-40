@@ -17,15 +17,15 @@ export function HeroSection() {
       <div className="relative z-30 text-center max-w-6xl mx-auto px-4 sm:px-6 pointer-events-none pt-16 sm:pt-4">
         <div className="animate-fade-in">
           <h1 className={cn("text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6")}>
-            Join America's Premier
+            Europe's Next-Gen
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-              Distributor Network
+              Protein Innovations
             </span>
           </h1>
           
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-2">
-            We handle the European complexity - you focus on US sales success. 
-            Your proven pathway to PWD Nutrition, Protella & ElevenFit partnerships.
+            Revolutionary protein products from PWD Nutrition, Protella & ElevenFit. 
+            Join America's premier authorized distributor network for exclusive access.
           </p>
           
           <div className="flex flex-col gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12 pointer-events-auto w-full max-w-md sm:max-w-none mx-auto">
