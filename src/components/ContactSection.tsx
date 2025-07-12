@@ -12,11 +12,11 @@ export function ContactSection() {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 px-2">
-            Partner With Us
+            Join Our Authorized Network
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-2">
-            America's specialist distributor for European nutrition brands. 
-            Connect with us to explore partnership opportunities in your market.
+            Official US distributor for Europe's breakthrough nutrition brands. 
+            Apply for exclusive territory rights in our authorized dealer network.
           </p>
         </div>
         
@@ -25,7 +25,7 @@ export function ContactSection() {
           <Card className="shadow-elegant">
             <CardHeader>
               <CardTitle className="text-xl sm:text-2xl font-bold text-foreground">
-                Partnership Inquiry
+                Apply for Authorized Dealer Status
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 sm:space-y-6">
@@ -59,13 +59,13 @@ export function ContactSection() {
                 <Label htmlFor="message">Message</Label>
                 <Textarea 
                   id="message" 
-                  placeholder="Tell us about your distribution experience and market interests for European nutrition brands..."
+                  placeholder="Tell us about your distribution experience and desired territory for exclusive access to our European brands..."
                   className="min-h-[120px]"
                 />
               </div>
               
               <Button className="w-full bg-gradient-primary text-white hover:opacity-90 shadow-glow text-sm sm:text-base py-3 sm:py-4">
-                Request Partnership Information
+                Apply for Exclusive Territory Rights
               </Button>
             </CardContent>
           </Card>

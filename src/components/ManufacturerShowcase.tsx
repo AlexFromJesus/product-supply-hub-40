@@ -11,32 +11,32 @@ const manufacturers = [
   {
     name: "PWD Nutrition", 
     country: "Spain",
-    title: "US Specialist Partner - PWD Nutrition",
-    description: "15 years of expertise in dietetics, nutrition and food supplements. NutriFlow specializes in bringing PWD's pharmaceutical-grade products to American markets with full regulatory support.",
+    title: "Official US Partner - PWD Nutrition",
+    description: "15 years of expertise in dietetics, nutrition and food supplements. Exclusive US distribution rights. All PWD products available only through our authorized dealer network.",
     specialties: ["Protein Cookies", "Protein Cake", "Pharmaceutical Grade"],
     image: pwdImage,
     highlightProducts: ["34% Protein Cookies (4 flavors)", "Protein Cake (20% protein)", "Protein Bun (20% protein)"],
-    exclusiveText: "Trusted US market specialist"
+    exclusiveText: "Exclusive US distribution rights guaranteed"
   },
   {
     name: "Protella",
     country: "Spain",
-    title: "US Specialist Partner - Protella",
-    description: "Premium protein products made in Spain with Creapure®, Sucramix®, DigeZyme®, and Peptan® certifications. We handle all US market requirements for Protella's premium protein innovations, ensuring seamless market entry.",
+    title: "Official US Partner - Protella",
+    description: "Premium protein products made in Spain with Creapure®, Sucramix®, DigeZyme®, and Peptan® certifications. Exclusive US distribution agreement. Official American source for all Protella innovations.",
     specialties: ["Whey Protein Products", "Premium Protein Creams", "Creatine Supplements"],
     image: protellaImage,
     highlightProducts: ["Whey Protein American Cookie", "Protein Chocolate Creams", "Creatina Creapure® Doughnut"],
-    exclusiveText: "Expert US market guidance"
+    exclusiveText: "Exclusive US distribution agreement active"
   },
   {
     name: "ElevenFit",
     country: "Spain", 
-    title: "US Specialist Partner - ElevenFit",
-    description: "Revolutionary sugar-free nutrition with 50 instant drink flavors. NutriFlow manages US distribution strategy for ElevenFit's revolutionary 50-flavor collection.",
+    title: "Official US Partner - ElevenFit",
+    description: "Revolutionary sugar-free nutrition with 50 instant drink flavors. Exclusive US territory rights. Only authorized source for ElevenFit's 50-flavor collection in America.",
     specialties: ["50 Flavor Collection", "Sugar-Free Products", "Instant Mixes"],
     image: elevenfitImage,
     highlightProducts: ["50 Flavor Instant Drinks", "Zero-Calorie Syrups", "Individual Flavor Collections"],
-    exclusiveText: "Proven US distribution expertise"
+    exclusiveText: "Exclusive US territory rights secured"
   }
 ];
 
@@ -46,11 +46,11 @@ export function ManufacturerShowcase() {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 px-2">
-            Our Partner Brands
+            Our Exclusive Brands
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
-            Trusted US specialist for Europe's leading nutrition brands. 
-            Your expert pathway to proven European innovation in American markets.
+            Official US distributor for Europe's breakthrough nutrition brands. 
+            Exclusive American access available only through our authorized dealer network.
           </p>
           
           {/* Partner Logos */}
@@ -95,7 +95,7 @@ export function ManufacturerShowcase() {
                   </Badge>
                   <Badge className="bg-primary text-white">
                     <Shield className="w-3 h-3 mr-1" />
-                    Trusted US Specialist
+                    Official US Distributor
                   </Badge>
                 </div>
               </div>
@@ -141,7 +141,7 @@ export function ManufacturerShowcase() {
                     {manufacturer.exclusiveText}
                   </Badge>
                   <p className="text-xs text-muted-foreground">
-                    Specialist guidance for US market success
+                    Available only through our authorized dealer network
                   </p>
                 </div>
                 
