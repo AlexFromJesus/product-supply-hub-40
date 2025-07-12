@@ -7,15 +7,15 @@ import { MapPin, Shield, TrendingUp, BookOpen, DollarSign, FileText, Clock, Star
 const dealerBenefits = [
   {
     icon: MapPin,
-    title: "Protected Territory Rights",
-    description: "Exclusive geographic protection ensures no competing authorized dealers in your area.",
-    highlight: "Territory Protection"
+    title: "Market Support",
+    description: "Geographic focus areas help you build strong regional presence with European brands.",
+    highlight: "Market Focus"
   },
   {
     icon: Shield,
-    title: "Exclusive Product Access",
-    description: "First access to new products and limited edition items before general market release.",
-    highlight: "Early Access"
+    title: "Premium Product Access",
+    description: "Priority access to new products and featured items from our European manufacturing partners.",
+    highlight: "Priority Access"
   },
   {
     icon: TrendingUp,
@@ -44,10 +44,10 @@ const dealerBenefits = [
 ];
 
 const urgencyItems = [
-  "Limited territories available",
-  "Exclusive dealer applications now open", 
-  "Secure your market before competitors",
-  "Protected regional exclusivity"
+  "Growing partnership opportunities",
+  "European brand expansion support", 
+  "Market development assistance available",
+  "Specialist training programs included"
 ];
 
 export function AuthorizedDealerBenefits() {
@@ -56,21 +56,21 @@ export function AuthorizedDealerBenefits() {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16">
           <Badge className="mb-4 bg-primary text-white">
-            Authorized Dealer Program
+            Partnership Program
           </Badge>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
-            Exclusive Partner Benefits
+            Partner Benefits
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Join America's most exclusive nutrition distribution network. 
-            Protected territories with premium European brands.
+            Join America's premier European nutrition distribution network. 
+            Partner with trusted European brands for US market success.
           </p>
           
           {/* Urgency Section */}
           <div className="bg-primary/10 rounded-lg p-4 sm:p-6 max-w-2xl mx-auto mb-8">
             <div className="flex items-center justify-center mb-3">
               <Clock className="h-5 w-5 text-primary mr-2" />
-              <span className="font-semibold text-primary">Limited Time Opportunity</span>
+              <span className="font-semibold text-primary">Partnership Opportunities</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-muted-foreground">
               {urgencyItems.map((item, index) => (
@@ -116,17 +116,17 @@ export function AuthorizedDealerBenefits() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <div className="text-left">
-                <h4 className="font-semibold text-primary mb-2">The ONLY authorized US source</h4>
-                <p className="text-sm text-muted-foreground">Exclusive partnerships others can't access</p>
+                <h4 className="font-semibold text-primary mb-2">Trusted American gateway</h4>
+                <p className="text-sm text-muted-foreground">Deep relationships with European manufacturers</p>
               </div>
               <div className="text-left">
-                <h4 className="font-semibold text-primary mb-2">Direct relationships others can't access</h4>
-                <p className="text-sm text-muted-foreground">US compliance others can't guarantee</p>
+                <h4 className="font-semibold text-primary mb-2">Proven pathway to European brands</h4>
+                <p className="text-sm text-muted-foreground">Expert guidance through market entry</p>
               </div>
             </div>
             
             <Button size="lg" className="bg-primary text-white hover:bg-primary/90">
-              Apply for Authorized Dealer Status
+              Apply for Partnership Status
             </Button>
           </div>
         </div>

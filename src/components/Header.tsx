@@ -37,14 +37,14 @@ export const Header = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="text-white/90 hover:text-white hover:bg-white/10 text-sm px-3 py-1">
-                    Our Brands
+                    Our Partner Brands
                     <ChevronDown className="ml-1 h-3 w-3" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="start" className="w-48">
                   <DropdownMenuItem asChild>
                     <Link to="/manufacturers" className="w-full">
-                      Our Exclusive Brands
+                      Our Partner Brands
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
@@ -68,13 +68,13 @@ export const Header = () => {
                 onClick={() => scrollToSection('dealer-benefits')}
                 className="text-sm text-white/90 hover:text-white transition-colors duration-200 hover:underline underline-offset-4"
               >
-                Dealer Network
+                Partnership
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
                 className="text-sm text-white/90 hover:text-white transition-colors duration-200 hover:underline underline-offset-4"
               >
-                Become Authorized
+                Contact
               </button>
             </nav>
 
@@ -96,7 +96,7 @@ export const Header = () => {
                   onClick={closeMenu}
                   className="text-sm text-white/90 hover:text-white transition-colors duration-200 text-left"
                 >
-                  Our Exclusive Brands
+                  Our Partner Brands
                 </Link>
                 <Link 
                   to="/manufacturers/pwd-nutrition"
@@ -123,13 +123,13 @@ export const Header = () => {
                   onClick={() => scrollToSection('dealer-benefits')}
                   className="text-sm text-white/90 hover:text-white transition-colors duration-200 text-left"
                 >
-                  Dealer Network
+                  Partnership
                 </button>
                 <button
                   onClick={() => scrollToSection('contact')}
                   className="text-sm text-white/90 hover:text-white transition-colors duration-200 text-left"
                 >
-                  Become Authorized
+                  Contact
                 </button>
               </nav>
             </div>
