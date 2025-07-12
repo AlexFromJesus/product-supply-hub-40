@@ -19,8 +19,8 @@ const dealerBenefits = [
   },
   {
     icon: TrendingUp,
-    title: "Marketing Development Funds",
-    description: "Co-op advertising, promotional materials, and marketing support exclusive to authorized partners.",
+    title: "Marketing & Sales Support",
+    description: "Product knowledge, sales training, and promotional materials to help you succeed in the market.",
     highlight: "Marketing Support"
   },
   {
