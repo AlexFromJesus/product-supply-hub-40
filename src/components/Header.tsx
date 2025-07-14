@@ -30,7 +30,7 @@ export const Header = () => {
           <div className="flex items-center justify-between h-12 sm:h-16">
             {/* Logo/Brand */}
             <Link to="/" className="text-lg font-bold text-white hover:text-primary transition-colors">
-              NutriFlow
+              Spanish Protein
             </Link>
 
             {/* Desktop Navigation */}
