@@ -57,7 +57,7 @@ Message: ${formData.message}`
       // Send email using EmailJS
       await emailjs.send(
         'service_kaxuj7e',
-        'YOUR_TEMPLATE_ID',
+        'template_kbbhkbc',
         templateParams,
         'UR8EgZT1iPqTp5iGg'
       );
