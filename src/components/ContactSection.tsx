@@ -1,14 +1,97 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Loader2 } from "lucide-react";
+import emailjs from '@emailjs/browser';
+import { useToast } from "@/hooks/use-toast";
 
 export function ContactSection() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    company: '',
+    territory: '',
+    message: ''
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const { toast } = useToast();
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Basic validation
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.company || !formData.territory || !formData.message) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all fields before submitting.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      // Prepare template parameters for EmailJS
+      const templateParams = {
+        from_name: `${formData.firstName} ${formData.lastName}`,
+        from_email: formData.email,
+        message: `Company: ${formData.company}
+Territory: ${formData.territory}
+Message: ${formData.message}`
+      };
+
+      // Send email using EmailJS
+      await emailjs.send(
+        'service_kaxuj7e',
+        'YOUR_TEMPLATE_ID',
+        templateParams,
+        'UR8EgZT1iPqTp5iGg'
+      );
+
+      // Success feedback
+      toast({
+        title: "Message sent successfully!",
+        description: "We'll review your application and get back to you soon."
+      });
+
+      // Clear form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        company: '',
+        territory: '',
+        message: ''
+      });
+
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      toast({
+        title: "Failed to send message",
+        description: "Please try again later or contact us directly.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-hero overflow-x-hidden">
+    <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-gradient-hero overflow-x-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 px-2">
@@ -29,44 +112,97 @@ export function ContactSection() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 sm:space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="firstName">First Name</Label>
-                  <Input id="firstName" placeholder="John" />
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="firstName">First Name</Label>
+                    <Input 
+                      id="firstName" 
+                      placeholder="John" 
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      disabled={isLoading}
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="lastName">Last Name</Label>
+                    <Input 
+                      id="lastName" 
+                      placeholder="Doe" 
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      disabled={isLoading}
+                      required
+                    />
+                  </div>
                 </div>
+                
                 <div className="space-y-2">
-                  <Label htmlFor="lastName">Last Name</Label>
-                  <Input id="lastName" placeholder="Doe" />
+                  <Label htmlFor="email">Email</Label>
+                  <Input 
+                    id="email" 
+                    type="email" 
+                    placeholder="john@company.com" 
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    disabled={isLoading}
+                    required
+                  />
                 </div>
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="john@company.com" />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="company">Company</Label>
-                <Input id="company" placeholder="Your Distribution Company" />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="territory">Territory/Region</Label>
-                <Input id="territory" placeholder="California, Northeast, etc." />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="message">Message</Label>
-                <Textarea 
-                  id="message" 
-                  placeholder="Tell us about your distribution experience, current market reach, and why you'd be a good fit for our authorized network"
-                  className="min-h-[120px]"
-                />
-              </div>
-              
-              <Button className="w-full bg-gradient-primary text-white hover:opacity-90 shadow-glow text-sm sm:text-base py-3 sm:py-4">
-                Apply for Authorized Status
-              </Button>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="company">Company</Label>
+                  <Input 
+                    id="company" 
+                    placeholder="Your Distribution Company" 
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    disabled={isLoading}
+                    required
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="territory">Territory/Region</Label>
+                  <Input 
+                    id="territory" 
+                    placeholder="California, Northeast, etc." 
+                    value={formData.territory}
+                    onChange={handleInputChange}
+                    disabled={isLoading}
+                    required
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea 
+                    id="message" 
+                    placeholder="Tell us about your distribution experience, current market reach, and why you'd be a good fit for our authorized network"
+                    className="min-h-[120px]"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    disabled={isLoading}
+                    required
+                  />
+                </div>
+                
+                <Button 
+                  type="submit"
+                  className="w-full bg-gradient-primary text-white hover:opacity-90 shadow-glow text-sm sm:text-base py-3 sm:py-4"
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending Application...
+                    </>
+                  ) : (
+                    'Apply for Authorized Status'
+                  )}
+                </Button>
+              </form>
             </CardContent>
           </Card>
           
