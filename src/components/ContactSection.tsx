@@ -59,7 +59,7 @@ export function ContactSection() {
                 <Label htmlFor="message">Message</Label>
                 <Textarea 
                   id="message" 
-                  placeholder="Tell us about your distribution experience, current market reach, and why you'd be a good fit for our authorized network..."
+                  placeholder="Tell us about your distribution experience, current market reach, and why you'd be a good fit for our authorized network"
                   className="min-h-[120px]"
                 />
               </div>
@@ -80,7 +80,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground text-sm sm:text-base">Email</h3>
-                    <p className="text-muted-foreground text-xs sm:text-sm">distribution@nutrition-imports.com</p>
+                    <p className="text-muted-foreground text-xs sm:text-sm">contact@spanishprotein.com</p>
                   </div>
                 </div>
               </CardContent>
@@ -94,7 +94,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground text-sm sm:text-base">Phone</h3>
-                    <p className="text-muted-foreground text-xs sm:text-sm">+1 (555) 123-4567</p>
+                    <p className="text-muted-foreground text-xs sm:text-sm">+1 920-360-0485</p>
                   </div>
                 </div>
               </CardContent>
@@ -109,8 +109,8 @@ export function ContactSection() {
                   <div>
                     <h3 className="font-semibold text-foreground text-sm sm:text-base">Office</h3>
                     <p className="text-muted-foreground text-xs sm:text-sm">
-                      123 Business Plaza<br />
-                      New York, NY 10001
+                      Green Bay, Wisconsin<br />
+                      United States
                     </p>
                   </div>
                 </div>

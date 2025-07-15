@@ -32,6 +32,10 @@ export function HeroSection() {
             <Button 
               size="lg" 
               className="bg-white text-primary hover:bg-gray-100 font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg shadow-glow transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+              onClick={() => {
+                const element = document.getElementById('contact');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Join Authorized Network
               <ArrowRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5" />
