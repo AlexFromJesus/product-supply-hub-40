@@ -3,6 +3,7 @@ import { FaCookie, FaBreadSlice, FaVial, FaFlask, FaStar } from 'react-icons/fa'
 
 const InteractiveSelector = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [permanentActiveIndex, setPermanentActiveIndex] = useState(0);
   const [animatedOptions, setAnimatedOptions] = useState([]);
   
   const options = [
@@ -45,9 +46,16 @@ const InteractiveSelector = () => {
   ];
 
   const handleOptionClick = (index) => {
-    if (index !== activeIndex) {
-      setActiveIndex(index);
-    }
+    setPermanentActiveIndex(index);
+    setActiveIndex(index);
+  };
+
+  const handleOptionHover = (index) => {
+    setActiveIndex(index);
+  };
+
+  const handleOptionLeave = () => {
+    setActiveIndex(permanentActiveIndex);
   };
 
   useEffect(() => {
@@ -152,16 +160,8 @@ const InteractiveSelector = () => {
               willChange: 'flex-grow, box-shadow, background-size, background-position'
             }}
             onClick={() => handleOptionClick(index)}
-            onMouseEnter={(e) => {
-              if (activeIndex !== index) {
-                e.currentTarget.style.backgroundSize = 'auto 110%';
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (activeIndex !== index) {
-                e.currentTarget.style.backgroundSize = 'auto 120%';
-              }
-            }}
+            onMouseEnter={() => handleOptionHover(index)}
+            onMouseLeave={handleOptionLeave}
           >
             {/* Shadow effect */}
             <div 
