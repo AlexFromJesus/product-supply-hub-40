@@ -45,6 +45,9 @@ export function ContactSection() {
     setIsLoading(true);
 
     try {
+      // Initialize EmailJS (ensures it's properly configured)
+      emailjs.init('UR8EgZT1iPqTp5iGg');
+      
       // Prepare template parameters for EmailJS
       const templateParams = {
         from_name: `${formData.firstName} ${formData.lastName}`,
@@ -55,12 +58,13 @@ Message: ${formData.message}`
       };
 
       // Send email using EmailJS
-      await emailjs.send(
+      const result = await emailjs.send(
         'service_kaxuj7e',
         'template_kbbhkbc',
-        templateParams,
-        'UR8EgZT1iPqTp5iGg'
+        templateParams
       );
+      
+      console.log('EmailJS Success:', result);
 
       // Success feedback
       toast({
