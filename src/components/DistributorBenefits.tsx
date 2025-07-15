@@ -67,7 +67,14 @@ export function DistributorBenefits() {
             Join our network of successful distributors and unlock the potential 
             of premium European nutrition brands in the US market.
           </p>
-          <Button size="lg" className="bg-gradient-primary text-white hover:opacity-90 px-6 sm:px-8 py-3 sm:py-4 shadow-glow text-sm sm:text-base">
+          <Button 
+            size="lg" 
+            className="bg-gradient-primary text-white hover:opacity-90 px-6 sm:px-8 py-3 sm:py-4 shadow-glow text-sm sm:text-base"
+            onClick={() => {
+              const element = document.getElementById('contact');
+              element?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
             Apply for Distribution Partnership
           </Button>
         </div>
