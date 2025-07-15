@@ -90,11 +90,11 @@ const InteractiveSelector = () => {
             }}
             onClick={() => handleOptionClick(index)}
           >
-            <div className="relative h-48 overflow-hidden">
+            <div className="relative h-48 overflow-visible">
               <img
                 src={option.image}
                 alt={option.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-500 ease-out hover:scale-110 hover:z-10"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
@@ -125,6 +125,7 @@ const InteractiveSelector = () => {
             style={{
               backgroundImage: `url('${option.image}')`,
               backgroundSize: activeIndex === index ? 'auto 100%' : 'auto 120%',
+              transition: 'all 0.7s ease-in-out, background-size 0.3s ease-out',
               backgroundPosition: 'center',
               backfaceVisibility: 'hidden',
               opacity: animatedOptions.includes(index) ? 1 : 0,
@@ -151,6 +152,16 @@ const InteractiveSelector = () => {
               willChange: 'flex-grow, box-shadow, background-size, background-position'
             }}
             onClick={() => handleOptionClick(index)}
+            onMouseEnter={(e) => {
+              if (activeIndex !== index) {
+                e.currentTarget.style.backgroundSize = 'auto 110%';
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (activeIndex !== index) {
+                e.currentTarget.style.backgroundSize = 'auto 120%';
+              }
+            }}
           >
             {/* Shadow effect */}
             <div 
