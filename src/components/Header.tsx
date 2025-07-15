@@ -95,33 +95,29 @@ export const Header = () => {
               </nav>
 
               {/* Language Toggle */}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="text-white/90 hover:text-white hover:bg-white/10 text-sm px-3 py-1">
-                    <Globe className="mr-1 h-3 w-3" />
-                    {language.toUpperCase()}
-                    <ChevronDown className="ml-1 h-3 w-3" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-24 bg-background/95 backdrop-blur-sm border border-white/20">
-                  <DropdownMenuItem asChild>
-                    <button 
-                      onClick={() => setLanguage('en')}
-                      className={`w-full text-left ${language === 'en' ? "bg-muted" : ""}`}
-                    >
-                      English
-                    </button>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <button 
-                      onClick={() => setLanguage('es')}
-                      className={`w-full text-left ${language === 'es' ? "bg-muted" : ""}`}
-                    >
-                      Español
-                    </button>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <div className="flex items-center space-x-2 text-sm">
+                <button
+                  onClick={() => setLanguage('en')}
+                  className={`px-2 py-1 rounded transition-colors ${
+                    language === 'en' 
+                      ? "bg-white/20 text-white" 
+                      : "text-white/70 hover:text-white"
+                  }`}
+                >
+                  EN
+                </button>
+                <span className="text-white/50">|</span>
+                <button
+                  onClick={() => setLanguage('es')}
+                  className={`px-2 py-1 rounded transition-colors ${
+                    language === 'es' 
+                      ? "bg-white/20 text-white" 
+                      : "text-white/70 hover:text-white"
+                  }`}
+                >
+                  ES
+                </button>
+              </div>
             </div>
 
             {/* Mobile Menu Button */}
@@ -177,7 +173,6 @@ export const Header = () => {
                 {/* Mobile Language Toggle */}
                 <div className="pt-2 border-t border-white/10">
                   <div className="flex items-center space-x-3">
-                    <Globe className="h-4 w-4 text-white/90" />
                     <span className="text-sm text-white/90">Language:</span>
                     <button
                       onClick={() => setLanguage('en')}
@@ -189,6 +184,7 @@ export const Header = () => {
                     >
                       EN
                     </button>
+                    <span className="text-white/50">|</span>
                     <button
                       onClick={() => setLanguage('es')}
                       className={`text-sm px-2 py-1 rounded transition-colors ${

@@ -7,8 +7,10 @@ import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, Clock, Loader2 } from "lucide-react";
 import emailjs from '@emailjs/browser';
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function ContactSection() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -130,11 +132,10 @@ ${formData.message}
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 px-2">
-            Join Our Authorized Network
+            {t('contact.title')}
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-2">
-            Apply for authorized distributor status and access the European nutrition brands your market demands.
-            Selective qualification ensures better support for committed partners.
+            {t('contact.subtitle')}
           </p>
         </div>
         
@@ -143,14 +144,14 @@ ${formData.message}
           <Card className="shadow-elegant">
             <CardHeader>
               <CardTitle className="text-xl sm:text-2xl font-bold text-foreground">
-                Authorized Distributor Application
+                {t('contact.form.title')}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 sm:space-y-6">
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name</Label>
+                    <Label htmlFor="firstName">{t('contact.firstName')}</Label>
                     <Input 
                       id="firstName" 
                       placeholder="John" 
@@ -161,7 +162,7 @@ ${formData.message}
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name</Label>
+                    <Label htmlFor="lastName">{t('contact.lastName')}</Label>
                     <Input 
                       id="lastName" 
                       placeholder="Doe" 
@@ -174,7 +175,7 @@ ${formData.message}
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="email">{t('contact.email')}</Label>
                   <Input 
                     id="email" 
                     type="email" 
@@ -187,7 +188,7 @@ ${formData.message}
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="company">Company</Label>
+                  <Label htmlFor="company">{t('contact.company')}</Label>
                   <Input 
                     id="company" 
                     placeholder="Your Distribution Company" 
@@ -199,7 +200,7 @@ ${formData.message}
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="territory">Territory/Region</Label>
+                  <Label htmlFor="territory">{t('contact.territory')}</Label>
                   <Input 
                     id="territory" 
                     placeholder="California, Northeast, etc." 
@@ -211,10 +212,10 @@ ${formData.message}
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="message">{t('contact.message')}</Label>
                   <Textarea 
                     id="message" 
-                    placeholder="Tell us about your distribution experience, current market reach, and why you'd be a good fit for our authorized network"
+                    placeholder={t('contact.message.placeholder')}
                     className="min-h-[120px]"
                     value={formData.message}
                     onChange={handleInputChange}
@@ -231,10 +232,10 @@ ${formData.message}
                   {isLoading ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Sending Application...
+                      {t('contact.submitting')}
                     </>
                   ) : (
-                    'Apply for Authorized Status'
+                    t('contact.submit')
                   )}
                 </Button>
               </form>
@@ -250,7 +251,7 @@ ${formData.message}
                     <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground text-sm sm:text-base">Email</h3>
+                    <h3 className="font-semibold text-foreground text-sm sm:text-base">{t('contact.info.email')}</h3>
                     <p className="text-muted-foreground text-xs sm:text-sm">contact@spanishprotein.com</p>
                   </div>
                 </div>
@@ -264,7 +265,7 @@ ${formData.message}
                     <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground text-sm sm:text-base">Phone</h3>
+                    <h3 className="font-semibold text-foreground text-sm sm:text-base">{t('contact.info.phone')}</h3>
                     <p className="text-muted-foreground text-xs sm:text-sm">+1 920-360-0485</p>
                   </div>
                 </div>
@@ -278,10 +279,9 @@ ${formData.message}
                     <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground text-sm sm:text-base">Office</h3>
+                    <h3 className="font-semibold text-foreground text-sm sm:text-base">{t('contact.info.office')}</h3>
                     <p className="text-muted-foreground text-xs sm:text-sm">
-                      Green Bay, Wisconsin<br />
-                      United States
+                      {t('contact.info.office.address')}
                     </p>
                   </div>
                 </div>
@@ -295,10 +295,9 @@ ${formData.message}
                     <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground text-sm sm:text-base">Business Hours</h3>
+                    <h3 className="font-semibold text-foreground text-sm sm:text-base">{t('contact.info.hours')}</h3>
                     <p className="text-muted-foreground text-xs sm:text-sm">
-                      Mon - Fri: 9:00 AM - 6:00 PM EST<br />
-                      Sat: 10:00 AM - 2:00 PM EST
+                      {t('contact.info.hours.schedule')}
                     </p>
                   </div>
                 </div>

@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { MapPin, Shield, Star } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import protellaImage from "/lovable-uploads/3e471310-2c1b-4607-9f54-f251614841b8.png";
 import pwdImage from "/lovable-uploads/a3fa7e2c-f897-4f11-b53d-6155e3de4cdb.png";
 import elevenfitImage from "@/assets/elevenfit-hero.jpg";
@@ -41,16 +42,16 @@ const manufacturers = [
 ];
 
 export function ManufacturerShowcase() {
+  const { t } = useLanguage();
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-gradient-card overflow-x-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 px-2">
-            Our Partner Brands
+            {t('brands.title')}
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
-            Trusted US specialist for Europe's leading nutrition brands. 
-            Your expert pathway to proven European innovation in American markets.
+            {t('brands.subtitle')}
           </p>
           
           {/* Partner Logos */}
@@ -80,7 +81,39 @@ export function ManufacturerShowcase() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {manufacturers.map((manufacturer, index) => (
+          {manufacturers.map((manufacturer, index) => {
+            const getTranslatedManufacturer = (name: string) => {
+              switch(name) {
+                case 'PWD Nutrition':
+                  return {
+                    title: t('brands.pwd.title'),
+                    description: t('brands.pwd.desc'),
+                    specialties: [t('brands.pwd.specialty1'), t('brands.pwd.specialty2'), t('brands.pwd.specialty3')],
+                    highlightProducts: [t('brands.pwd.product1'), t('brands.pwd.product2'), t('brands.pwd.product3')],
+                    exclusiveText: t('brands.pwd.exclusive')
+                  };
+                case 'Protella':
+                  return {
+                    title: t('brands.protella.title'),
+                    description: t('brands.protella.desc'),
+                    specialties: [t('brands.protella.specialty1'), t('brands.protella.specialty2'), t('brands.protella.specialty3')],
+                    highlightProducts: [t('brands.protella.product1'), t('brands.protella.product2'), t('brands.protella.product3')],
+                    exclusiveText: t('brands.protella.exclusive')
+                  };
+                case 'ElevenFit':
+                  return {
+                    title: t('brands.elevenfit.title'),
+                    description: t('brands.elevenfit.desc'),
+                    specialties: [t('brands.elevenfit.specialty1'), t('brands.elevenfit.specialty2'), t('brands.elevenfit.specialty3')],
+                    highlightProducts: [t('brands.elevenfit.product1'), t('brands.elevenfit.product2'), t('brands.elevenfit.product3')],
+                    exclusiveText: t('brands.elevenfit.exclusive')
+                  };
+                default:
+                  return manufacturer;
+              }
+            };
+            const translatedManufacturer = getTranslatedManufacturer(manufacturer.name);
+            return (
             <Card key={manufacturer.name} className="overflow-hidden shadow-card hover:shadow-elegant transition-all duration-300 hover:scale-105">
               <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                 <img 
@@ -95,7 +128,7 @@ export function ManufacturerShowcase() {
                   </Badge>
                   <Badge className="bg-primary text-white">
                     <Shield className="w-3 h-3 mr-1" />
-                    Trusted US Specialist
+                    {t('brands.trusted')}
                   </Badge>
                 </div>
               </div>
@@ -104,19 +137,19 @@ export function ManufacturerShowcase() {
                 <div className="flex items-center justify-between mb-3 sm:mb-4">
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold text-foreground">{manufacturer.name}</h3>
-                    <p className="text-sm text-primary font-medium">{manufacturer.title}</p>
+                    <p className="text-sm text-primary font-medium">{translatedManufacturer.title}</p>
                   </div>
                   <Star className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
                 </div>
                 
                 <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4 leading-relaxed">
-                  {manufacturer.description}
+                  {translatedManufacturer.description}
                 </p>
                 
                 <div className="mb-3 sm:mb-4">
-                  <h4 className="font-semibold text-foreground mb-2 text-sm sm:text-base">Specialties:</h4>
+                  <h4 className="font-semibold text-foreground mb-2 text-sm sm:text-base">{t('brands.specialties')}</h4>
                   <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                    {manufacturer.specialties.map((specialty) => (
+                    {translatedManufacturer.specialties.map((specialty) => (
                       <Badge key={specialty} variant="outline" className="text-xs sm:text-sm">
                         {specialty}
                       </Badge>
@@ -125,9 +158,9 @@ export function ManufacturerShowcase() {
                 </div>
                 
                 <div className="mb-4">
-                  <h4 className="font-semibold text-foreground mb-2 text-sm sm:text-base">Featured Products:</h4>
+                  <h4 className="font-semibold text-foreground mb-2 text-sm sm:text-base">{t('brands.featured')}</h4>
                   <ul className="text-xs sm:text-sm text-muted-foreground space-y-1">
-                    {manufacturer.highlightProducts.map((product) => (
+                    {translatedManufacturer.highlightProducts.map((product) => (
                       <li key={product} className="flex items-start">
                         <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full mr-2 mt-1.5 sm:mt-2 flex-shrink-0"></span>
                         <span className="leading-relaxed">{product}</span>
@@ -138,19 +171,19 @@ export function ManufacturerShowcase() {
                 
                 <div className="mb-4">
                   <Badge variant="outline" className="text-xs text-primary border-primary mb-2">
-                    {manufacturer.exclusiveText}
+                    {translatedManufacturer.exclusiveText}
                   </Badge>
                   <p className="text-xs text-muted-foreground">
-                    Specialist guidance for US market success
+                    {t('brands.guidance')}
                   </p>
                 </div>
                 
                 <Button className="w-full" variant="outline">
-                  Request Product Information
+                  {t('brands.request')}
                 </Button>
               </CardContent>
             </Card>
-          ))}
+          )})}
         </div>
       </div>
     </section>
