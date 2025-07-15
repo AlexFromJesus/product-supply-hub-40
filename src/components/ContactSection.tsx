@@ -45,9 +45,6 @@ export function ContactSection() {
     setIsLoading(true);
 
     try {
-      // Initialize EmailJS (ensures it's properly configured)
-      emailjs.init('UR8EgZT1iPqTp5iGg');
-      
       // Prepare template parameters for EmailJS
       const templateParams = {
         from_name: `${formData.firstName} ${formData.lastName}`,
@@ -57,11 +54,16 @@ Territory: ${formData.territory}
 Message: ${formData.message}`
       };
 
-      // Send email using EmailJS
+      console.log('Sending email with params:', templateParams);
+
+      // Send email using EmailJS with proper initialization
       const result = await emailjs.send(
         'service_kaxuj7e',
         'template_kbbhkbc',
-        templateParams
+        templateParams,
+        {
+          publicKey: 'UR8EgZT1iPqTp5iGg',
+        }
       );
       
       console.log('EmailJS Success:', result);
@@ -83,10 +85,20 @@ Message: ${formData.message}`
       });
 
     } catch (error) {
-      console.error('EmailJS Error:', error);
+      console.error('EmailJS Error Details:', error);
+      
+      // More specific error handling
+      let errorMessage = "Please try again later or contact us directly.";
+      if (error instanceof Error) {
+        console.error('Error message:', error.message);
+        errorMessage = error.message.includes('network') 
+          ? "Network error. Please check your connection and try again."
+          : "Service temporarily unavailable. Please try again in a moment.";
+      }
+      
       toast({
         title: "Failed to send message",
-        description: "Please try again later or contact us directly.",
+        description: errorMessage,
         variant: "destructive"
       });
     } finally {
