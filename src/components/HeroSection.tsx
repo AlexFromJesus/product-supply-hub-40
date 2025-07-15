@@ -40,6 +40,10 @@ export function HeroSection() {
               variant="outline" 
               size="lg"
               className="border-white bg-white/10 text-white hover:bg-white hover:text-primary font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg transition-all duration-300 w-full sm:w-auto"
+              onClick={() => {
+                const element = document.getElementById('benefits');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               View Network Benefits
             </Button>
