@@ -166,13 +166,13 @@ export default function ProtellaPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
             {products.map((product) => (
-              <Card key={product.id} className="overflow-hidden shadow-card hover:shadow-elegant transition-all duration-300">
+              <Card key={product.id} className="shadow-card hover:shadow-elegant transition-all duration-300">
                 {product.image && (
-                  <div className="relative h-48 overflow-visible group">
+                  <div className="relative h-48 overflow-hidden">
                     <img 
                       src={product.image} 
                       alt={product.name}
-                      className="w-full h-full object-cover transition-all duration-500 ease-out hover:scale-125 hover:z-10 transform-origin-center group-hover:shadow-2xl"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out hover:scale-110 cursor-pointer"
                     />
                   </div>
                 )}
