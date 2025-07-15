@@ -7,7 +7,6 @@ import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, Clock, Loader2 } from "lucide-react";
 import emailjs from '@emailjs/browser';
 import { useToast } from "@/hooks/use-toast";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -21,7 +20,6 @@ export function ContactSection() {
   const [isLoading, setIsLoading] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
-  const { t } = useLanguage();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
@@ -132,10 +130,11 @@ ${formData.message}
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 px-2">
-            {t('contact.title')}
+            Join Our Authorized Network
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-2">
-            {t('contact.subtitle')}
+            Apply for authorized distributor status and access the European nutrition brands your market demands.
+            Selective qualification ensures better support for committed partners.
           </p>
         </div>
         
@@ -151,7 +150,7 @@ ${formData.message}
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="firstName">{t('contact.firstName')}</Label>
+                    <Label htmlFor="firstName">First Name</Label>
                     <Input 
                       id="firstName" 
                       placeholder="John" 
@@ -162,7 +161,7 @@ ${formData.message}
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="lastName">{t('contact.lastName')}</Label>
+                    <Label htmlFor="lastName">Last Name</Label>
                     <Input 
                       id="lastName" 
                       placeholder="Doe" 
@@ -175,7 +174,7 @@ ${formData.message}
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="email">{t('contact.email')}</Label>
+                  <Label htmlFor="email">Email</Label>
                   <Input 
                     id="email" 
                     type="email" 
@@ -188,7 +187,7 @@ ${formData.message}
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="company">{t('contact.company')}</Label>
+                  <Label htmlFor="company">Company</Label>
                   <Input 
                     id="company" 
                     placeholder="Your Distribution Company" 
@@ -200,7 +199,7 @@ ${formData.message}
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="territory">{t('contact.territory')}</Label>
+                  <Label htmlFor="territory">Territory/Region</Label>
                   <Input 
                     id="territory" 
                     placeholder="California, Northeast, etc." 
@@ -212,10 +211,10 @@ ${formData.message}
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="message">{t('contact.message')}</Label>
+                  <Label htmlFor="message">Message</Label>
                   <Textarea 
                     id="message" 
-                    placeholder={t('contact.messagePlaceholder')}
+                    placeholder="Tell us about your distribution experience, current market reach, and why you'd be a good fit for our authorized network"
                     className="min-h-[120px]"
                     value={formData.message}
                     onChange={handleInputChange}
@@ -232,10 +231,10 @@ ${formData.message}
                   {isLoading ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      {t('contact.sending')}
+                      Sending Application...
                     </>
                   ) : (
-                    t('contact.send')
+                    'Apply for Authorized Status'
                   )}
                 </Button>
               </form>

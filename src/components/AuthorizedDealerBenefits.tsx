@@ -3,7 +3,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Shield, TrendingUp, BookOpen, DollarSign, FileText, Clock, Star } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 const dealerBenefits = [
   {
@@ -52,26 +51,26 @@ const urgencyItems = [
 ];
 
 export function AuthorizedDealerBenefits() {
-  const { t } = useLanguage();
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-gradient-card">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16">
           <Badge className="mb-4 bg-primary text-white">
-            {t('dealer.badge')}
+            Partnership Program
           </Badge>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
-            {t('dealer.title')}
+            Authorized Distributor Network
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            {t('dealer.subtitle')}
+            Join our qualified network of authorized distributors. Selective partnership means 
+            better support, training, and territorial development for serious partners only.
           </p>
           
           {/* Urgency Section */}
           <div className="bg-primary/10 rounded-lg p-4 sm:p-6 max-w-2xl mx-auto mb-8">
             <div className="flex items-center justify-center mb-3">
               <Clock className="h-5 w-5 text-primary mr-2" />
-              <span className="font-semibold text-primary">{t('dealer.opportunities')}</span>
+              <span className="font-semibold text-primary">Partnership Opportunities</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-muted-foreground">
               {urgencyItems.map((item, index) => (
@@ -113,21 +112,21 @@ export function AuthorizedDealerBenefits() {
         <div className="mt-12 sm:mt-16 text-center">
           <div className="bg-background/80 backdrop-blur-sm rounded-lg p-6 sm:p-8 max-w-4xl mx-auto border">
             <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
-              {t('dealer.why.title')}
+              Why Our Authorized Network Works
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <div className="text-left">
-                <h4 className="font-semibold text-primary mb-2">{t('dealer.quality.title')}</h4>
-                <p className="text-sm text-muted-foreground">{t('dealer.quality.desc')}</p>
+                <h4 className="font-semibold text-primary mb-2">Quality Over Quantity</h4>
+                <p className="text-sm text-muted-foreground">Selective qualification means better support for committed partners</p>
               </div>
               <div className="text-left">
-                <h4 className="font-semibold text-primary mb-2">{t('dealer.investment.title')}</h4>
-                <p className="text-sm text-muted-foreground">{t('dealer.investment.desc')}</p>
+                <h4 className="font-semibold text-primary mb-2">Mutual Investment</h4>
+                <p className="text-sm text-muted-foreground">We invest in your success with ongoing training and development</p>
               </div>
             </div>
             
             <Button size="lg" className="bg-primary text-white hover:bg-primary/90">
-              {t('dealer.apply')}
+              Apply for Authorized Status
             </Button>
           </div>
         </div>

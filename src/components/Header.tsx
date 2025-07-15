@@ -32,7 +32,7 @@ export const Header = () => {
           <div className="flex items-center justify-between h-12 sm:h-16">
             {/* Logo/Brand */}
             <Link to="/" className="text-lg font-bold text-white hover:text-primary transition-colors">
-              {t('header.logo')}
+              Spanish Protein
             </Link>
 
             {/* Desktop Navigation */}
@@ -94,16 +94,34 @@ export const Header = () => {
                 </button>
               </nav>
 
-              {/* Simple Language Toggle */}
-              <button
-                onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-                className="flex items-center space-x-1 text-white/90 hover:text-white transition-colors duration-200 text-sm px-3 py-1 rounded hover:bg-white/10"
-              >
-                <Globe className="h-3 w-3" />
-                <span>{language === 'en' ? 'EN' : 'ES'}</span>
-                <span className="text-white/60">|</span>
-                <span className="text-white/60">{language === 'en' ? 'ES' : 'EN'}</span>
-              </button>
+              {/* Language Toggle */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="text-white/90 hover:text-white hover:bg-white/10 text-sm px-3 py-1">
+                    <Globe className="mr-1 h-3 w-3" />
+                    {language.toUpperCase()}
+                    <ChevronDown className="ml-1 h-3 w-3" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-24 bg-background/95 backdrop-blur-sm border border-white/20">
+                  <DropdownMenuItem asChild>
+                    <button 
+                      onClick={() => setLanguage('en')}
+                      className={`w-full text-left ${language === 'en' ? "bg-muted" : ""}`}
+                    >
+                      English
+                    </button>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <button 
+                      onClick={() => setLanguage('es')}
+                      className={`w-full text-left ${language === 'es' ? "bg-muted" : ""}`}
+                    >
+                      Español
+                    </button>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
 
             {/* Mobile Menu Button */}
@@ -158,15 +176,30 @@ export const Header = () => {
                 
                 {/* Mobile Language Toggle */}
                 <div className="pt-2 border-t border-white/10">
-                  <button
-                    onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-                    className="flex items-center space-x-2 text-white/90 hover:text-white transition-colors"
-                  >
-                    <Globe className="h-4 w-4" />
-                    <span className="text-sm">
-                      {language === 'en' ? 'EN' : 'ES'} | {language === 'en' ? 'ES' : 'EN'}
-                    </span>
-                  </button>
+                  <div className="flex items-center space-x-3">
+                    <Globe className="h-4 w-4 text-white/90" />
+                    <span className="text-sm text-white/90">Language:</span>
+                    <button
+                      onClick={() => setLanguage('en')}
+                      className={`text-sm px-2 py-1 rounded transition-colors ${
+                        language === 'en' 
+                          ? "bg-white/20 text-white" 
+                          : "text-white/70 hover:text-white"
+                      }`}
+                    >
+                      EN
+                    </button>
+                    <button
+                      onClick={() => setLanguage('es')}
+                      className={`text-sm px-2 py-1 rounded transition-colors ${
+                        language === 'es' 
+                          ? "bg-white/20 text-white" 
+                          : "text-white/70 hover:text-white"
+                      }`}
+                    >
+                      ES
+                    </button>
+                  </div>
                 </div>
               </nav>
             </div>

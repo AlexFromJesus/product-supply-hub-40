@@ -4,11 +4,9 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ArrowRight, Package, Globe, TrendingUp } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 export function HeroSection() {
   const isMobile = useIsMobile();
-  const { t } = useLanguage();
   
   return (
     <div className="min-h-screen relative w-full overflow-hidden bg-gradient-hero flex flex-col items-center justify-center">
@@ -19,11 +17,15 @@ export function HeroSection() {
       <div className="relative z-30 text-center max-w-6xl mx-auto px-4 sm:px-6 pointer-events-none pt-16 sm:pt-4">
         <div className="animate-fade-in">
           <h1 className={cn("text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6")}>
-            {t('hero.title')}
+            Europe's Next-Gen
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+              Protein Innovations
+            </span>
           </h1>
           
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-2">
-            {t('hero.subtitle')}
+            Revolutionary protein products from PWD Nutrition, Protella & ElevenFit. 
+            Join America's premier authorized distributor network for exclusive access.
           </p>
           
           <div className="flex flex-col gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12 pointer-events-auto w-full max-w-md sm:max-w-none mx-auto">
@@ -35,7 +37,7 @@ export function HeroSection() {
                 element?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              {t('hero.cta')}
+              Join Authorized Network
               <ArrowRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5" />
             </Button>
             <Button 
@@ -43,11 +45,11 @@ export function HeroSection() {
               size="lg"
               className="border-white bg-white/10 text-white hover:bg-white hover:text-primary font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg transition-all duration-300 w-full sm:w-auto"
               onClick={() => {
-                const element = document.getElementById('dealer-benefits');
+                const element = document.getElementById('benefits');
                 element?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              {t('common.learnMore')}
+              View Network Benefits
             </Button>
           </div>
           
