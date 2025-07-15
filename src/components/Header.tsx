@@ -120,13 +120,41 @@ export const Header = () => {
               </div>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-white/90 hover:text-white transition-colors duration-200"
-            >
-              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
+            {/* Mobile Language Toggle & Menu Button */}
+            <div className="md:hidden flex items-center space-x-3">
+              {/* Mobile Language Toggle */}
+              <div className="flex items-center space-x-2 text-sm">
+                <button
+                  onClick={() => setLanguage('en')}
+                  className={`px-2 py-1 rounded transition-colors ${
+                    language === 'en' 
+                      ? "bg-white/20 text-white" 
+                      : "text-white/70 hover:text-white"
+                  }`}
+                >
+                  EN
+                </button>
+                <span className="text-white/50">|</span>
+                <button
+                  onClick={() => setLanguage('es')}
+                  className={`px-2 py-1 rounded transition-colors ${
+                    language === 'es' 
+                      ? "bg-white/20 text-white" 
+                      : "text-white/70 hover:text-white"
+                  }`}
+                >
+                  ES
+                </button>
+              </div>
+              
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-white/90 hover:text-white transition-colors duration-200"
+              >
+                {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Navigation */}
