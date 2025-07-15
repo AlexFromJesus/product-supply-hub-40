@@ -16,7 +16,7 @@ export function HeroSection() {
       
       {!isMobile && <Boxes />}
       
-      <div className="relative z-30 text-center max-w-6xl mx-auto px-4 sm:px-6 pointer-events-none pt-16 sm:pt-4">
+      <div className="relative z-30 text-center max-w-6xl mx-auto px-4 sm:px-6 pointer-events-none pt-20 sm:pt-4">
         <div className="animate-fade-in">
           <h1 className={cn("text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6")}>
             {t('hero.title1')}
