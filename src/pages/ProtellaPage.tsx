@@ -168,11 +168,11 @@ export default function ProtellaPage() {
             {products.map((product) => (
               <Card key={product.id} className="overflow-hidden shadow-card hover:shadow-elegant transition-all duration-300">
                 {product.image && (
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-48 overflow-visible group">
                     <img 
                       src={product.image} 
                       alt={product.name}
-                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                      className="w-full h-full object-cover transition-all duration-500 ease-out hover:scale-125 hover:z-10 transform-origin-center group-hover:shadow-2xl"
                     />
                   </div>
                 )}
