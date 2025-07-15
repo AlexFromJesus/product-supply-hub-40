@@ -45,28 +45,47 @@ export function ContactSection() {
     setIsLoading(true);
 
     try {
-      // Prepare template parameters for EmailJS
+      // Initialize EmailJS first
+      console.log('Initializing EmailJS...');
+      emailjs.init('UR8EgZT1iPqTp5iGg');
+      
+      // Prepare template parameters for EmailJS - using standard parameter names
       const templateParams = {
+        to_name: 'Spanish Protein Team',
         from_name: `${formData.firstName} ${formData.lastName}`,
         from_email: formData.email,
-        message: `Company: ${formData.company}
+        reply_to: formData.email,
+        company: formData.company,
+        territory: formData.territory,
+        message: formData.message,
+        full_message: `
+Contact Information:
+Name: ${formData.firstName} ${formData.lastName}
+Email: ${formData.email}
+Company: ${formData.company}
 Territory: ${formData.territory}
-Message: ${formData.message}`
+
+Message:
+${formData.message}
+        `.trim()
       };
 
-      console.log('Sending email with params:', templateParams);
+      console.log('EmailJS Configuration:');
+      console.log('Service ID:', 'service_kaxuj7e');
+      console.log('Template ID:', 'template_kbbhkbc');
+      console.log('Template params:', templateParams);
 
-      // Send email using EmailJS with proper initialization
+      // Send email using EmailJS
+      console.log('Attempting to send email...');
       const result = await emailjs.send(
         'service_kaxuj7e',
         'template_kbbhkbc',
-        templateParams,
-        {
-          publicKey: 'UR8EgZT1iPqTp5iGg',
-        }
+        templateParams
       );
       
-      console.log('EmailJS Success:', result);
+      console.log('EmailJS Success Response:', result);
+      console.log('Status:', result.status);
+      console.log('Text:', result.text);
 
       // Success feedback
       toast({
