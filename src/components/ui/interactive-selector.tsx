@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { FaCookie, FaBreadSlice, FaVial, FaFlask, FaStar } from 'react-icons/fa';
+import { Skeleton } from './skeleton';
 
 const InteractiveSelector = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [permanentActiveIndex, setPermanentActiveIndex] = useState(0);
   const [animatedOptions, setAnimatedOptions] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   
   const options = [
     {
@@ -58,20 +61,56 @@ const InteractiveSelector = () => {
     setActiveIndex(permanentActiveIndex);
   };
 
+  // Detect mobile on mount
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Preload critical images
+  useEffect(() => {
+    const preloadImages = options.slice(0, 3).map(option => {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = resolve;
+        img.src = option.image;
+      });
+    });
+    
+    Promise.all(preloadImages).then(() => {
+      setIsLoading(false);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (isLoading) return;
+    
     const timers = [];
+    const delay = isMobile ? 50 : 180; // Much faster on mobile
+    
+    // Show first option immediately on mobile
+    if (isMobile) {
+      setAnimatedOptions([0]);
+    }
     
     options.forEach((_, i) => {
       const timer = setTimeout(() => {
         setAnimatedOptions(prev => [...prev, i]);
-      }, 180 * i);
+      }, isMobile && i === 0 ? 0 : delay * i);
       timers.push(timer);
     });
     
     return () => {
       timers.forEach(timer => clearTimeout(timer));
     };
-  }, []);
+  }, [isMobile, isLoading]);
 
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen bg-background font-sans text-foreground py-8 sm:py-16 overflow-x-hidden"> 
@@ -84,20 +123,30 @@ const InteractiveSelector = () => {
       <div className="h-6 sm:h-12"></div>
 
       {/* Mobile Cards View */}
-      <div className="block md:hidden w-full max-w-sm mx-auto px-4 space-y-4 min-h-[50vh]">
-        {options.map((option, index) => (
-          <div
-            key={index}
-            className={`
-              relative rounded-xl overflow-hidden transition-all duration-300 cursor-pointer
-              ${activeIndex === index ? 'ring-2 ring-primary' : ''}
-              ${animatedOptions.includes(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
-            `}
-            style={{
-              transitionDelay: `${index * 100}ms`
-            }}
-            onClick={() => handleOptionClick(index)}
-          >
+      <div className="block md:hidden w-full max-w-sm mx-auto px-4 space-y-4">
+        {isLoading ? (
+          // Loading skeleton for mobile
+          <div className="space-y-4">
+            {[...Array(3)].map((_, index) => (
+              <div key={index} className="rounded-xl overflow-hidden">
+                <Skeleton className="h-48 w-full" />
+              </div>
+            ))}
+          </div>
+        ) : (
+          options.map((option, index) => (
+            <div
+              key={index}
+              className={`
+                relative rounded-xl overflow-hidden transition-all duration-300 cursor-pointer
+                ${activeIndex === index ? 'ring-2 ring-primary' : ''}
+                ${animatedOptions.includes(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+              `}
+              style={{
+                transitionDelay: `${index * 50}ms`
+              }}
+              onClick={() => handleOptionClick(index)}
+            >
             <div className="relative h-48 overflow-visible">
               <img
                 src={option.image}
@@ -118,7 +167,8 @@ const InteractiveSelector = () => {
               </div>
             </div>
           </div>
-        ))}
+          ))
+        )}
       </div>
 
       {/* Desktop Options Container */}
