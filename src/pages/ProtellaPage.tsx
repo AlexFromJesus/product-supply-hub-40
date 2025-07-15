@@ -172,7 +172,7 @@ export default function ProtellaPage() {
                     <img 
                       src={product.image} 
                       alt={product.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                     />
                   </div>
                 )}
