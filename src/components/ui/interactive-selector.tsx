@@ -84,7 +84,7 @@ const InteractiveSelector = () => {
       <div className="h-6 sm:h-12"></div>
 
       {/* Mobile Cards View */}
-      <div className="block md:hidden w-full max-w-sm mx-auto px-4 space-y-4">
+      <div className="block md:hidden w-full max-w-sm mx-auto px-4 space-y-4 min-h-[50vh]">
         {options.map((option, index) => (
           <div
             key={index}
