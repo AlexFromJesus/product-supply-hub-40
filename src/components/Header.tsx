@@ -9,10 +9,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState("EN");
+  const { language, setLanguage, t } = useLanguage();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -38,58 +39,58 @@ export const Header = () => {
             <div className="hidden md:flex items-center space-x-6">
               <nav className="flex items-center space-x-6">
                 <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="text-white/90 hover:text-white hover:bg-white/10 text-sm px-3 py-1">
-                      Our Partner Brands
-                      <ChevronDown className="ml-1 h-3 w-3" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start" className="w-48">
-                    <DropdownMenuItem asChild>
-                      <button 
-                        onClick={() => scrollToSection('brands')}
-                        className="w-full text-left"
-                      >
-                        Our Partner Brands
-                      </button>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <button 
-                        onClick={() => scrollToSection('pwd-nutrition')}
-                        className="w-full text-left"
-                      >
-                        PWD Nutrition
-                      </button>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <button 
-                        onClick={() => scrollToSection('protella')}
-                        className="w-full text-left"
-                      >
-                        Protella
-                      </button>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <button 
-                        onClick={() => scrollToSection('elevenfit')}
-                        className="w-full text-left"
-                      >
-                        ElevenFit
-                      </button>
-                    </DropdownMenuItem>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="text-white/90 hover:text-white hover:bg-white/10 text-sm px-3 py-1">
+                    {t('header.brands')}
+                    <ChevronDown className="ml-1 h-3 w-3" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="w-48 bg-background/95 backdrop-blur-sm border border-white/20">
+                  <DropdownMenuItem asChild>
+                    <button 
+                      onClick={() => scrollToSection('brands')}
+                      className="w-full text-left"
+                    >
+                      {t('header.brands')}
+                    </button>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <button 
+                      onClick={() => scrollToSection('brands')}
+                      className="w-full text-left"
+                    >
+                      PWD Nutrition
+                    </button>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <button 
+                      onClick={() => scrollToSection('brands')}
+                      className="w-full text-left"
+                    >
+                      Protella
+                    </button>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <button 
+                      onClick={() => scrollToSection('brands')}
+                      className="w-full text-left"
+                    >
+                      ElevenFit
+                    </button>
+                  </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
                 <button
                   onClick={() => scrollToSection('dealer-benefits')}
                   className="text-sm text-white/90 hover:text-white transition-colors duration-200 hover:underline underline-offset-4"
                 >
-                  Partnership
+                  {t('header.partnership')}
                 </button>
                 <button
                   onClick={() => scrollToSection('contact')}
                   className="text-sm text-white/90 hover:text-white transition-colors duration-200 hover:underline underline-offset-4"
                 >
-                  Contact
+                  {t('header.contact')}
                 </button>
               </nav>
 
@@ -98,23 +99,23 @@ export const Header = () => {
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="text-white/90 hover:text-white hover:bg-white/10 text-sm px-3 py-1">
                     <Globe className="mr-1 h-3 w-3" />
-                    {language}
+                    {language.toUpperCase()}
                     <ChevronDown className="ml-1 h-3 w-3" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-24">
+                <DropdownMenuContent align="end" className="w-24 bg-background/95 backdrop-blur-sm border border-white/20">
                   <DropdownMenuItem asChild>
                     <button 
-                      onClick={() => setLanguage("EN")}
-                      className={`w-full text-left ${language === "EN" ? "bg-muted" : ""}`}
+                      onClick={() => setLanguage('en')}
+                      className={`w-full text-left ${language === 'en' ? "bg-muted" : ""}`}
                     >
                       English
                     </button>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <button 
-                      onClick={() => setLanguage("ES")}
-                      className={`w-full text-left ${language === "ES" ? "bg-muted" : ""}`}
+                      onClick={() => setLanguage('es')}
+                      className={`w-full text-left ${language === 'es' ? "bg-muted" : ""}`}
                     >
                       Español
                     </button>
@@ -140,22 +141,22 @@ export const Header = () => {
                   onClick={() => scrollToSection('brands')}
                   className="text-sm text-white/90 hover:text-white transition-colors duration-200 text-left"
                 >
-                  Our Partner Brands
+                  {t('header.brands')}
                 </button>
                 <button 
-                  onClick={() => scrollToSection('pwd-nutrition')}
+                  onClick={() => scrollToSection('brands')}
                   className="text-sm text-white/90 hover:text-white transition-colors duration-200 text-left pl-4"
                 >
                   PWD Nutrition
                 </button>
                 <button 
-                  onClick={() => scrollToSection('protella')}
+                  onClick={() => scrollToSection('brands')}
                   className="text-sm text-white/90 hover:text-white transition-colors duration-200 text-left pl-4"
                 >
                   Protella
                 </button>
                 <button 
-                  onClick={() => scrollToSection('elevenfit')}
+                  onClick={() => scrollToSection('brands')}
                   className="text-sm text-white/90 hover:text-white transition-colors duration-200 text-left pl-4"
                 >
                   ElevenFit
@@ -164,13 +165,13 @@ export const Header = () => {
                   onClick={() => scrollToSection('dealer-benefits')}
                   className="text-sm text-white/90 hover:text-white transition-colors duration-200 text-left"
                 >
-                  Partnership
+                  {t('header.partnership')}
                 </button>
                 <button
                   onClick={() => scrollToSection('contact')}
                   className="text-sm text-white/90 hover:text-white transition-colors duration-200 text-left"
                 >
-                  Contact
+                  {t('header.contact')}
                 </button>
                 
                 {/* Mobile Language Toggle */}
@@ -179,9 +180,9 @@ export const Header = () => {
                     <Globe className="h-4 w-4 text-white/90" />
                     <span className="text-sm text-white/90">Language:</span>
                     <button
-                      onClick={() => setLanguage("EN")}
+                      onClick={() => setLanguage('en')}
                       className={`text-sm px-2 py-1 rounded transition-colors ${
-                        language === "EN" 
+                        language === 'en' 
                           ? "bg-white/20 text-white" 
                           : "text-white/70 hover:text-white"
                       }`}
@@ -189,9 +190,9 @@ export const Header = () => {
                       EN
                     </button>
                     <button
-                      onClick={() => setLanguage("ES")}
+                      onClick={() => setLanguage('es')}
                       className={`text-sm px-2 py-1 rounded transition-colors ${
-                        language === "ES" 
+                        language === 'es' 
                           ? "bg-white/20 text-white" 
                           : "text-white/70 hover:text-white"
                       }`}
